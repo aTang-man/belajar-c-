@@ -16,7 +16,7 @@ void showList(node *current);
 
 int main(){
 	node *head = NULL;
-	node *last = NULL;	
+	node *last = NULL;
 	char choice;
 	int number;
 	do{
@@ -24,7 +24,7 @@ int main(){
 		switch(choice)
 		{
 			case '1':
-				cout<<" enter a number";
+				cout<<" Input angka link list : ";
 				cin>>number;
 				insert(head,last,number);
 				break;
@@ -34,23 +34,23 @@ int main(){
 				case '3':
 					showList(head);
 					break;
-				default:cout<<"system exit";	
+				default:cout<<"system exit";
 		}
-		
+
 	}while(choice != '4');
 }
 
 char menu(){
 	char choice;
 	cout<<" Menu "<<endl;
-	cout<<"1. add an item "<<endl;
-	cout<<"2. remove an item "<<endl;
-	cout<<"3. show an item "<<endl;
+	cout<<"1. masukan urutan link list "<<endl;
+	cout<<"2. hapus urutan link list "<<endl;
+	cout<<"3. tampilkan data yang di input "<<endl;
 	cout<<"4. exit"<<endl;
 	cout<<" masukan pilihan anda : ";
 	cin>>choice;
 	cout<<endl;
-	return choice;	
+	return choice;
 }
 
 bool isEmpty(node *head){
@@ -69,7 +69,7 @@ void insertAsFirstElement(node *&head,node *&last, int number){
 }
 void insert(node *&head,node *&last, int number){
 	if(isEmpty(head)){
-		insertAsFirstElement(head,last,number);	
+		insertAsFirstElement(head,last,number);
 	}else{
 		node *temp = new node;
 	temp->number = number;
@@ -77,17 +77,17 @@ void insert(node *&head,node *&last, int number){
 	last->next = temp;
 	last = temp;
 	}
-	
+
 }
 void remove(node *&head,node *&last){
 	if(isEmpty(head)){
 		cout<<"gak ada list"<<endl;
 	}else if(head == last){
-		
+
 		delete head;
 		head == NULL;
 		last == NULL;
-		
+
 	}else{
 		node *temp = head;
 		head = head->next;
@@ -103,7 +103,7 @@ void showList(node *current){
 			cout<<current->number<<endl;
 			current = current->next;
 		}
-		
+
 	}
 }
 
